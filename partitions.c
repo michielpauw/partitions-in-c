@@ -27,7 +27,7 @@ static int	get_partition_number(int **previous, int count, int length, int filte
 	int	**new;
 	int	**expanded;
 
-	if ((length + filtered) % 21 == 0)
+	if ((length + filtered) % 8118264 == 0)
 		return (count);
 	i = 0;
 	j = 0;
@@ -51,6 +51,7 @@ static int	get_partition_number(int **previous, int count, int length, int filte
 			new[j++] = expanded[1];
 	}
 	i = 0;
+	printf("%d\n", j + filtered);
 	free(previous);
 	return (get_partition_number(new, count + 1, j, filtered));
 }
