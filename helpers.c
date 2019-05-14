@@ -25,12 +25,12 @@ int	*expand_partition(int *partition, int *amount_expanded)
 	return (expanded);
 }
 
-void	print_partition(int *partition, int size)
+void	print_partition(int *partition)
 {
 	int	i;
 
 	i = 0;
-	while (i < size)
+	while (i < 3)
 		printf("%d ", partition[i++]);
 	printf("\n");
 }

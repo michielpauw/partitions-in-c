@@ -5,6 +5,6 @@
 
 int		get_partition_size(int *partition);
 int		*expand_partition(int *partition, int *amount_expanded);
-void	print_partition(int *partition, int size);
+void	print_partition(int *partition);
 
 #endif
