@@ -34,3 +34,15 @@ void	print_partition(int *partition)
 		printf("%d ", partition[i++]);
 	printf("\n");
 }
+
+void	free_partitions(int **partitions, int length)
+{
+	int	i;
+
+	if (length == 0)
+		return ;
+	i = 0;
+	while (i < length)
+		free(partitions[i++]);
+	free(partitions);
+}

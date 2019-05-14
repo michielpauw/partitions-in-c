@@ -6,7 +6,10 @@ static int	**get_new_entries(int **partition, int *amount_expanded)
 	int	**new_partition;
 
 	if ((*partition)[0] == 1 && (*partition)[1] == 1)
+	{
+		free(*partition);
 		return (NULL);
+	}
 	*amount_expanded = 1;
 	new_partition = ft_alloc(2 * sizeof(int *));
 	new_partition[0] = ft_alloc(3 * sizeof(int));
@@ -27,7 +30,7 @@ static int	get_partition_number(int **previous, int count, int length, int filte
 	int	**new;
 	int	**expanded;
 
-	if ((length + filtered) % 8118264 == 0)
+	if ((length + filtered) % 1000000 == 0)
 		return (count);
 	i = 0;
 	j = 0;
@@ -49,9 +52,10 @@ static int	get_partition_number(int **previous, int count, int length, int filte
 			filtered++;
 		if (amount_expanded == 2)
 			new[j++] = expanded[1];
+		free(expanded);
 	}
 	i = 0;
-	printf("%d\n", j + filtered);
+	printf("%d:\t%d\n", count, j + filtered);
 	free(previous);
 	return (get_partition_number(new, count + 1, j, filtered));
 }
